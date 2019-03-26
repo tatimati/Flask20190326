@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+
+{% block first_head %}
+<!-- 5秒に1回リダイレクト -->
+<meta http-equiv="refresh" content=" 5; url=./">
+{% endblock %}
+
+{% block content %}
+<h1>気圧測定</h1>
+
+<p>
+	
+	{#　emessageが存在しているか #}
+	{% if emessage %}
+			<p>Arduinoが読み込めません。接続されているか確認してください。</p>
+	{% endif%}
+
+	{# now_timeが存在しているか #}
+	{% if now_time %}
+			<p>時刻は{{ now_time }}です。</p>
+	{% endif %}
+	
+	{# pressure_dataが存在しているか #}
+	{% if pressure_data %}
+			{% if pressure_data == "None" %}
+				<p>データが取れていないです。センサーをつけているかどうか確認してください。</p>
+			{% else %}
+				<p>気圧は{{ pressure_data }}hPaです 。</p>
+			{% endif %}
+			
+	{% endif %}
+	
+	{# temp_dataが存在しているか #}
+	{% if temp_data %}
+			{% if temp_data == "None" %}
+					<p>データが取れていないです。センサーをつけているかどうか確認してください。</p>
+			{% else %}
+				<p>温度は{{ temp_data }}℃です。</p>
+			{% endif %}
+
+	{% endif %}
+	
+</p>
+{% endblock %}
+
+

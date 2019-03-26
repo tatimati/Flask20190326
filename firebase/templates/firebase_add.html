@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Post</h1>
+
+<form action="/" method="POST">
+
+	<p>
+		<p> cp :  <input type="text" name="cp"> </p>
+		<p> id :  <input type="text" name="id"> </p>
+		<p> star : <input type="text" name="star"> </p>
+	</p>
+	
+	<button type="submit" name="submit">send</button>
+
+</form>
+
+<p>
+		{% if result == "Ok" %}
+			Send Successful!
+		{% endif %}
+
+	
+</p>
+{% endblock %}

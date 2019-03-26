@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>ガチャが回せるぞい</h1>
+
+<form action="/" method="POST">
+
+	<p>
+		<button type="submit" name="once">ガチャを回す</button>
+		<button type="submit" name="ten">10連ガチャを回す</button>
+		<button type="submit" name="reset">データをリセットする</button>
+	</p>
+
+
+</form>
+
+<p>
+
+	{% if gatya_data %}
+	
+		<p>星2 {{ gatya_data.Count_Double_Rare}} </p>
+		<p>星3 {{ gatya_data.Count_Triple_Rare}} </p>
+		<p>星4 {{ gatya_data.Count_Quadruple_Rare}} </p>
+	
+	
+	{% endif %}
+	
+	{% if gatya_items %}
+	
+	
+		{% for gatya_item in gatya_items %}
+			<p>{{ loop.index }}回目 {{ gatya_item }} </p> 
+		{% endfor %}
+	
+	{% endif %}
+
+	
+</p>
+{% endblock %}
+

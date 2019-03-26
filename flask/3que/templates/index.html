@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>テキストボックスに文字を書いて送信してみよう!</h1>
+<form action="/" method="POST">
+
+	<input type="text" name="send_data"></input>
+	<button type="submit" name="submit">send</button>
+
+</form>
+
+{% if send_data %}
+	<h2> {{ send_data }}を送信しました！ </h2>
+{% endif %}
+
+{% endblock %}
+
+
+

@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Please enter an integer</h1>
+
+<form action="/" method="POST">
+
+	<input type="text" name="num"></input>
+	<button type="submit" name="submit">send</button>
+
+</form>
+
+
+
+<p>
+	{# 0 no hannteini hituyou #}
+	{% if num != None and result %}
+		{{ num }} is {{ result }}.
+	{% endif %}
+	
+	{% if message %}
+		{{ message }}
+	{% endif %}
+	
+</p>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>教科の名前とどれくらい授業が楽しかったかを表した点数を入力してね</h1>
+
+{% if error_message != None %}
+	{% for error_item in error_message %}
+		<p>
+			{{ error_item }}
+		</p>
+	{% endfor %}
+{% endif %}
+
+<form action="/" method="POST">
+
+	<p>
+		<p> 名前 :  <input type="text" name="name"> </p>
+		<p> 楽しさ(整数) :  <input type="text" name="point"> </p>
+	</p>
+	
+	<button type="submit" name="submit">送信</button>
+
+</form>
+
+
+
+<p>
+		{% if subject_data != None %}
+			<table border="1">
+				<tr>
+					<th>教科名</th>
+					<th>楽しさ</th>
+				</tr>
+				{% for subject_item in subject_data %}
+					<tr>
+						<th>{{ subject_item }}</th>
+						<th>{{ subject_data[subject_item]["point"] }}</th>
+					</tr>
+				{% endfor %}
+			</table>
+		{% endif %}
+
+	
+</p>
+{% endblock %}
