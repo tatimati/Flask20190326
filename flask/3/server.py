@@ -7,14 +7,15 @@ def post_test():
 	webtitle = 'POST Test'
 	if request.method == 'POST':
 		getnum = request.form['num']
-		
+
+		# 入力されたデータが整数かどうか判別
 		try :
 			getnum = int(getnum) #change string into int
 		except ValueError as e:
 			message = 'error!!!!!! Please enter an integer!!!!!!'
 			return render_template('index.html',title = webtitle, message = message)
-	
-		
+
+		# 偶数奇数判定
 		if getnum % 2 == 0:
 			result = 'even'
 		elif getnum %2 == 1:

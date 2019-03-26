@@ -13,14 +13,16 @@
 
 
 <p>
-	{# 0 no hannteini hituyou #}
+	{# num != None にすると0の時にTrueになる #}
+	{# numとresultの中身が存在する時に表示する #}
 	{% if num != None and result %}
 		{{ num }} is {{ result }}.
 	{% endif %}
-	
+
+	{# messageの中身が存在する時に表示する #}
 	{% if message %}
 		{{ message }}
 	{% endif %}
-	
+
 </p>
 {% endblock %}
